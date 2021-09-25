@@ -1,4 +1,4 @@
-This repository hosts the code to identify boundaries of Tn7-like tranpsosons, as described in [Benler et al. 2021](https://doi.org/10.1101/2021.08.23.457393). The source data can be obtained on the [NCBI FTP](https://ftp.ncbi.nih.gov/pub/yutinn/benler_2021/Tn7/source_data/).
+This repository hosts the code to identify boundaries of Tn7-like tranpsosons, as described in [Benler et al. 2021](https://doi.org/10.1101/2021.08.23.457393). The source data for that paper can be obtained on the [NCBI FTP](https://ftp.ncbi.nih.gov/pub/yutinn/benler_2021/Tn7/source_data/).
 
 # Installation
 
@@ -70,7 +70,7 @@ The output directory contains two files:
 The motif XML file can be used to search other genomes for the presence of this motif. For example, the ends of Tn7 are not detected by Tnacity when it is located on the plasmid. This is likely due to the short length of the plasmid compared to a whole genome, which changes the markov model of the input DNA sequence. But, by providing the previously produced XML file via `-m`, one can correctly identify the boundaries using the `-search` option:
 >bin/tnacity.py -i tests/NC_002525.gb -infmt genbank -o tmp2/ -c 18254 -a NC_002525.1 -t search -m tmp/tns_motifs.xml 
 
-The [NCBI FTP](https://ftp.ncbi.nih.gov/pub/yutinn/benler_2021/Tn7/source_data/) has all the motifs reported in the paper (n ~600). You can use all of these to search a genome of interest (but it may take awhile to process all of the motifs).
+The file `tests/tnsb_cleaned.xml` has all the motifs reported in the paper (n ~3000). You can use all of these to search a genome of interest (but it may take awhile to process all of the motifs).
 
 # Citation
 Please consider citing the paper if you find this code useful:

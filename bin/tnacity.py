@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Description
+Identifies the boundaries of Tn7-like transposons
 """
 # Imports --------------------------------------------------------------------------------------------------
 import argparse
@@ -23,15 +23,15 @@ parser.add_argument('-i',
 
 parser.add_argument('-f',
                     '--features',
-                    help="/path/to/featureTable or GFF file",
+                    help="/path/to/featureTable",
                     type = str,
                     required=False)
 
-parser.add_argument('-g',
-                    '--gff',
-                    help="/path/to/GFF file",
-                    type = str,
-                    required=False)
+#parser.add_argument('-g',
+#                    '--gff',
+#                    help="/path/to/GFF file",
+#                    type = str,
+#                    required=False)
 
 parser.add_argument('-infmt',
                     '--in_format',
@@ -42,19 +42,19 @@ parser.add_argument('-infmt',
 
 parser.add_argument('-o',
                     '--output',
-                    help="/path/to/outputDirectory/",
+                    help="/path/to/outputDirectory/ (must be unique for each input)",
                     type = str,
                     required=True)
 
 parser.add_argument('-c',
                     '--coordinate',
-                    help="location of TnsB",
+                    help="Nucleotide coordinate to serve as the anchor for the search",
                     type = int,
                     required=True)
 
 parser.add_argument('-a',
                     '--accession',
-                    help="accession of the contig containing TnsB",
+                    help="accession of the contig to be searched",
                     type = str,
                     required=True)
 
@@ -66,12 +66,12 @@ parser.add_argument('-k',
 parser.add_argument('-t',
                     '--task',
                     type = str,
-                    help="'de_novo' or 'search', default 'de_novo'",
+                    help="Identify motifs 'de_novo' or 'search' with motifs provided using the flag -m, default 'de_novo'",
                     required=False)
 
 parser.add_argument('-m',
                     '--motifs',
-                    help="/path/to/motifs",
+                    help="/path/to/motifs (meme XML format)",
                     type = str,
                     required=False)
 
